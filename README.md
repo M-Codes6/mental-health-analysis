@@ -1,79 +1,75 @@
 # 🧠 Mental Health & Digital Behavior Analysis
 
 ## 📌 Project Overview
-This project analyzes how digital behavior (screen time, social media usage, notifications, and sleep) impacts mental health indicators such as anxiety, focus, and mood.
 
-The goal is to move from assumptions to data-driven insights using Exploratory Data Analysis (EDA) and correlation.
+This project analyzes how digital behavior (screen time, social media usage, notifications, and sleep) impacts mental health indicators. 
+
+The goal was to move from assumptions to data-driven insights using Exploratory Data Analysis (EDA), and then build a Machine Learning pipeline to predict user anxiety and extract actionable business recommendations.
 
 ---
 
 ## 📊 Dataset
+
 - 500 rows, 9 numerical features
 - No missing values
-- Includes:
-  - Screen time
-  - Sleep hours
-  - Notification count
-  - Social media usage
-  - Focus, mood, and anxiety scores
+- Features include: Screen time, Sleep hours, Notification count, Social media usage, Digital Wellbeing Score, and Anxiety levels.
 
 ---
 
 ## 🔍 Steps Performed
 
-### 1. Data Understanding
-- Checked structure, data types, and statistics
-- Verified no missing values
+### 1. Data Understanding & EDA
 
-### 2. Univariate Analysis
-- Analyzed distributions of:
-  - Screen time
-  - Sleep hours
-  - Notifications
-  - Anxiety levels
+- Checked structure, data types, and statistics.
+- Analyzed distributions of screen time, sleep hours, notifications, and anxiety levels.
+- Explored relationships using scatter plots and correlation heatmaps.
 
-### 3. Relationship Analysis
-- Explored relationships using scatter plots:
-  - Screen Time vs Anxiety
-  - Sleep vs Anxiety
-  - Notifications vs Focus
+### 2. Baseline Machine Learning
 
-### 4. Correlation Analysis
-- Used correlation matrix and heatmap
-- Identified strongest and weakest relationships
+- Split data into 80/20 Train/Test sets.
+- Applied `StandardScaler` to normalize feature weights.
+- Trained a baseline Logistic Regression model, which achieved 74% accuracy.
+
+### 3. Diagnosing Bias & Target Engineering
+
+- Deployed a Confusion Matrix and discovered the "Accuracy Trap" (the model was highly biased toward the majority class due to data imbalance).
+- Engineered the target variable (`anxiety_level`) into three broad categories (Low, Medium, High) using `pd.cut()` to group the data and simplify the decision boundary.
+
+### 4. Advanced Modeling & Feature Importance
+
+- Retrained models on the engineered target, boosting Logistic Regression accuracy to 99% and Random Forest to 90%.
+- Extracted Feature Importance from the Random Forest to identify the exact behaviors driving user anxiety.
 
 ---
 
 ## 📌 Key Insights
-- Social media usage has a stronger relationship with anxiety than overall screen time
-- Screen time and sleep do not significantly affect anxiety in this dataset
-- Notifications negatively impact focus
-- Human behavior is influenced by multiple factors, not a single variable
+
+- **The "Digital Wellbeing" Factor:** Feature Importance revealed that a user's overall "Digital Wellbeing Score" makes up over 50% of the model's decision-making power, vastly outweighing raw screen time.
+
+- **Quality over Quantity:** Social media usage has a much stronger relationship with anxiety than overall screen time. It is about *how* time is spent, not just *how much*.
+
+- **The Accuracy Trap:** Predicting complex psychological scales (1-10) on imbalanced data leads to biased models. Grouping data into broader actionable categories (Low/Medium/High) drastically improves model reliability.
 
 ---
 
 ## 💡 Recommendations
-- Reduce excessive social media usage
-- Manage notifications to improve focus
-- Focus on how time is spent, not just total screen time
 
----
+- **App Developers:** Instead of just tracking raw screen time, implement holistic "Digital Wellbeing" metrics (tracking late-night usage, focus modes, etc.) to better predict and prevent user burnout.
 
-## ⚠️ Limitations
-- Dataset is simulated
-- May not reflect real-world complexity
-- Correlation does not imply causation
+- **Users:** Focus on actively managing social media consumption and notifications, rather than just trying to reduce overall screen time.
 
 ---
 
 ## 🚀 Future Work
-- Build a machine learning model to predict anxiety levels
-- Include more real-world features for deeper analysis
+
+- Deploy the saved Machine Learning model into a live, interactive web application using Streamlit to allow users to predict their anxiety levels in real-time.
 
 ---
 
 ## 🛠️ Tools Used
-- Python
-- Pandas
-- Matplotlib
-- Seaborn
+
+- **Python:** Pandas, NumPy
+
+- **Machine Learning:** Scikit-Learn (Logistic Regression, Random Forest, StandardScaler)
+
+- **Data Visualization:** Matplotlib, Seaborn
