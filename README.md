@@ -6,7 +6,14 @@ As the culmination of this project, the trained Random Forest model is deployed 
 
 The app translates complex Machine Learning predictions into a user-friendly interface. It captures real-time user inputs (Digital Wellbeing Score, Screen Time, Mood, etc.), scales the data dynamically to match the training distribution, and instantly predicts the user's anxiety level (Low, Medium, High).
 
-**[🔗 Click Here to View the Live App]**(Add_Your_Streamlit_Link_Here_Soon)
+
+
+
+**[🔗 Click Here to View the Live App]**
+[](https://behavior-anxiety-model.streamlit.app/)
+
+
+
 
 ---
 
@@ -89,7 +96,7 @@ If you want to run this application on your own machine to test the model:
 
 **1. Clone this repository**
 ```bash
-git clone [https://github.com/YourUsername/Mental-Health-and-Digital-Behavior.git](https://github.com/M-Codes6/mental-health-analysis.git)
+git clone [](https://github.com/M-Codes6/mental-health-analysis.git)
 cd Mental-Health-and-Digital-Behavior
 
 
