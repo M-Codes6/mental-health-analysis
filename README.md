@@ -9,8 +9,8 @@ The app translates complex Machine Learning predictions into a user-friendly int
 
 
 
-**[🔗 Click Here to View the Live App]**
-[](https://behavior-anxiety-model.streamlit.app/)
+**[🔗 Click Here to View the Live App]:**
+(https://behavior-anxiety-model.streamlit.app/)
 
 
 
